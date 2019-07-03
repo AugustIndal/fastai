@@ -79,7 +79,7 @@ class RNNLearner(Learner):
         self.model.load_state_dict(wgts, strict=strict)
 
     def get_preds(self, ds_type:DatasetType=DatasetType.Valid, with_loss:bool=False, n_batch:Optional[int]=None, pbar:Optional[PBar]=None,
-                  ordered:bool=False) -> List[Tensor]:
+                  ordered:bool=True) -> List[Tensor]:
         "Return predictions and targets on the valid, train, or test set, depending on `ds_type`."
         self.model.reset()
         if ordered: np.random.seed(42)
